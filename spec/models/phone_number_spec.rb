@@ -7,4 +7,11 @@ RSpec.describe PhoneNumber, type: :model do
       expect(phone_number.value).to eq("5558568075")
     end
   end
+
+  context "phone number contains parenthese" do
+    it "strips out the parentheses" do
+      phone_number = FactoryBot.create(:phone_number, value: "(555) 856-8075")
+      expect(phone_number.value).to eq("5558568075")
+    end
+  end
 end
